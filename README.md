@@ -1,10 +1,14 @@
-> \[!NOTE]
->
-> **Version Information**
->
-> - **v1.x** (Stable): Available on the [`main`](https://github.com/lobehub/lobe-chat/tree/main) branch
-> - **v2.x** (In Development): Currently being actively developed on the [`next`](https://github.com/lobehub/lobe-chat/tree/next) branch 🔥
+# EmotionCustom
 
+**高端真人定制陪伴平台**
+
+· 真人1v1深度陪伴  
+· 精选高知伴侣 | 心理学背景优先  
+· 实名认证 + 端到端加密  
+· 像微信一样熟悉的聊天体验  
+· 安全 · 私密 · 干净 · 只为你一人在线
+
+立即体验 → https://你的域名.vercel.app
 <div align="center"><a name="readme-top"></a>
 
 [![][image-banner]][vercel-link]
