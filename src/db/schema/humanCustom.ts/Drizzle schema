@@ -1,0 +1,18 @@
+// src/db/schema/humanCustom.ts
+import { pgTable, serial, varchar, text, boolean, timestamp } from "drizzle-orm/pg-core";
+
+export const human_custom_orders = pgTable("human_custom_orders", {
+  id: serial("id").primaryKey(),
+  user_id: varchar("user_id", { length: 255 }).notNull(), // "anonymous" if no auth
+  email: varchar("email", { length: 255 }),
+  nickname: varchar("nickname", { length: 255 }),
+  language: varchar("language", { length: 50 }).default("zh"),
+  topic: text("topic"),
+  style: text("style"),
+  duration: varchar("duration", { length: 255 }),
+  contact_methods: text("contact_methods"),
+  allow_off_platform_contact: boolean("allow_off_platform_contact").default(false),
+  details: text("details"),
+  status: varchar("status", { length: 50 }).default("pending"),
+  created_at: timestamp("created_at").defaultNow(),
+});
