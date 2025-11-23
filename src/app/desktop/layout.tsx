@@ -1,31 +1,28 @@
-import { notFound } from 'next/navigation';
-import { NuqsAdapter } from 'nuqs/adapters/next/app';
-import { ReactNode } from 'react';
+// src/app/layout.tsx
+import "./globals.css";
+import BottomTab from "@/components/BottomTab";
 
-import { isDesktop } from '@/const/version';
-import GlobalLayout from '@/layout/GlobalProvider';
-import { ServerConfigStoreProvider } from '@/store/serverConfig/Provider';
+export const metadata = {
+  title: "LobeChat - 定制陪聊平台",
+  description: "AI + 真人陪聊，专为留学生和美国用户设计",
+};
 
-interface RootLayoutProps {
-  children: ReactNode;
-}
-
-const RootLayout = async ({ children }: RootLayoutProps) => {
-  if (!isDesktop) return notFound();
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html dir="ltr" suppressHydrationWarning>
-      <body>
-        <NuqsAdapter>
-          <ServerConfigStoreProvider>
-            <GlobalLayout appearance={'auto'} isMobile={false} locale={''}>
-              {children}
-            </GlobalLayout>
-          </ServerConfigStoreProvider>
-        </NuqsAdapter>
+    <html lang="zh-CN">
+      <body className="min-h-screen flex flex-col bg-gray-50">
+        {/* 主内容放这里 */}
+        <main className="flex-1 container mx-auto px-4 py-6">
+          {children}
+        </main>
+
+        {/* 底部 Tab（固定在底部） */}
+        <footer className="fixed bottom-0 left-0 right-0 bg-white border-t">
+          <div className="container mx-auto px-4">
+            <BottomTab />
+          </div>
+        </footer>
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}
